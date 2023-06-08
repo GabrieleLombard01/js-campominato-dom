@@ -34,6 +34,12 @@ function startGame(){
         //CREO la cella
         const cell = createCell(i);
 
+        //IN ASCOLTO sulla cella
+        cell.addEventListener('click',() => {
+            cell.classList.add('clicked');
+        });
+
+        //La inserisco in pagina
         grid.appendChild(cell);
     }
 };
