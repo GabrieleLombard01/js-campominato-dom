@@ -37,6 +37,7 @@ function startGame(){
         //IN ASCOLTO sulla cella
         cell.addEventListener('click',() => {
             cell.classList.add('clicked');
+            console.log(i);
         });
 
         //La inserisco in pagina

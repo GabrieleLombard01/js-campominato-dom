@@ -70,7 +70,6 @@ section{
     margin: 0 auto;
     width: 900px;
     height: 700px;
-    border: solid white 2px;
     color: #f7e92f;
     display: flex;
     flex-wrap: wrap;
@@ -80,7 +79,7 @@ section{
 #grid .cell{
     width: 10%;
     height: 10%;
-    border: solid white 1px;
+    border: solid #ed202a 2px;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -90,7 +89,7 @@ section{
 }
 
 #grid .cell.clicked{
-    background-color: rgb(0, 0, 99);
+    background-color: rgb(5, 65, 0);
 }
 
 
