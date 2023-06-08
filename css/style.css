@@ -6,8 +6,50 @@
     box-sizing: border-box;
 }
 
-/*Custom properties*/
-
+/*Pseudo classes*/
+button:hover{
+    color: #f7e92f;
+    background-color: #ed202a;
+    border: solid black 2px;
+}
 /*Generics*/
-
+header{
+    width: 100%;
+    height: 110px;
+    background-image: url(../img/wall-bg-colored.png);
+    background-size: cover;
+}
+button{
+    border-radius: 10px;
+    font-weight: bold;
+    border: solid #ed202a 2px;
+    background-color: #f7e92f;
+}
+body{
+    background-image: url(../img/wall-bg-blackAndWhite.png);
+    background-size: cover;
+}
+section{
+    margin: 0 auto;
+    border-radius: 10%;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 800px;
+    width: 1000px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: white;
+}
 /*Utilties*/
+
+/*Header*/
+.title_color{
+    color: #f7e92f;
+    text-shadow: 3px 3px #ed202a;
+}
+.logo_size{
+    height: 90px;
+}
+.difficulty_choise{
+    position: absolute;
+    right: 50px;
+}

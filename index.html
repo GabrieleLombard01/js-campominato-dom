@@ -7,6 +7,7 @@
     <meta name="author" content="Gabriele Lombardo"> 
     <meta name="keywords" content="Boolean exercise Classe 100"> 
     <meta name="description" content="Riproduzione di un . . .">
+    <link rel="icon" href="img/Bomb-favicon.ico" type="img/ico">
     <!--TODO Font Awesome -->
     <link rel="stylesheet" 
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -23,6 +24,37 @@
     <title>Document</title>
 </head>
 <body>
+      <!--Header-->
+      <header class="container-fluid">
+            <div class="row justify-content-between">
+                  <!--Logo e titolo-->
+                  <div class="col-6 pt-2">
+                        <figure class="d-inline">
+                              <a href="#"><img class="logo_size" src="img/Bomb-logo.png" alt="logo"></a>
+                        </figure>
+                        <h1 class="d-inline title_color">CAMPO MINATO</h1>
+                  </div>
+                  <!--Scelta difficoltà-->
+                  <div class="col-6 position-relative">
+                        <div class="difficulty_choise">
+                              <label for="difficulty" class="form-label title_color d-inline-block">Difficoltà:</label>
+                                  <select class="form-select d-inline" id="difficulty">
+                                      <option value="">Facile</option>
+                                      <option value="min">Normale</option>
+                                      <option value="over">Difficile</option>
+                                  </select>
+                                  <button class="d-inline mt-1 px-4">Gioca</button>
+                        </div>
+                  </div>
+            </div>
+      </header>
+      <!--GRID-->
+      <section <!--class="d-none"--></section>
+            <div id="grid"></div>
+      </section>
+      
+
+
 <!--! -MY JS- -->
 <script src="js/script.js"></script>
 </body>
