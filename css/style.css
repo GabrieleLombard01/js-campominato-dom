@@ -77,8 +77,6 @@ section{
 }
 
 #grid .cell{
-    width: 10%;
-    height: 10%;
     border: solid #ed202a 2px;
     cursor: pointer;
     display: flex;
@@ -87,6 +85,20 @@ section{
     font-size: 35px;
     font-weight: bold;
 }
+
+#grid .cell.hard {
+    height: calc(100% / 7);
+    width: calc(100% / 7);
+}
+#grid .cell.normal {
+    height: calc(100% / 9);
+    width: calc(100% / 9);
+}
+#grid .cell.easy {
+    height: calc(100% / 10);
+    width: calc(100% / 10);
+}
+
 
 #grid .cell.clicked{
     background-color: rgb(5, 65, 0);
