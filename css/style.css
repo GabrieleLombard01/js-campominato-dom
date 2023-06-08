@@ -41,13 +41,14 @@ body{
 }
 section{
     margin: 0 auto;
-    border-radius: 10%;
+    border-radius: 10px;
     background-color: rgba(0, 0, 0, 0.5);
     height: 800px;
     width: 1000px;
     margin-top: 50px;
     margin-bottom: 50px;
     color: white;
+    padding: 50px;
 }
 /*Utilties*/
 
@@ -64,6 +65,37 @@ section{
     right: 50px;
     top: 25px;
 }
+/*GRID*/
+#grid{
+    margin: 0 auto;
+    width: 900px;
+    height: 700px;
+    border: solid white 2px;
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 5px;
+}
+
+#grid .cell{
+    width: 10%;
+    height: 10%;
+    border: solid white 1px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+#grid .cell.clicked{
+    background-color: rgb(0, 0, 99);
+}
+
+
+
+
 /*RESPONSIVE LAYOUT*/
 @media screen and (max-width:553px) {
     header{height: 160px};
