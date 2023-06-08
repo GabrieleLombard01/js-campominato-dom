@@ -19,6 +19,16 @@ header{
     background-image: url(../img/wall-bg-colored.png);
     background-size: cover;
 }
+label{
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 1px 5px 1px 5px;
+    border-radius: 5px;
+}
+select{
+    background-color: #f7e92f;
+    width: 200px;
+    border-radius: 5px;
+}
 button{
     border-radius: 10px;
     font-weight: bold;
@@ -52,4 +62,9 @@ section{
 .difficulty_choise{
     position: absolute;
     right: 50px;
+    top: 25px;
+}
+/*RESPONSIVE LAYOUT*/
+@media screen and (max-width:553px) {
+    header{height: 160px};
 }
