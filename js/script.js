@@ -34,6 +34,15 @@ const startGame = () => {
         return cell;
     };
 
+    //Funzione ENDgame
+    function endGame(score, hasHitBomb){
+        const message = hasHitBomb
+            ? `Hai perso! Hai totalizzato ${score} punti` 
+            : `Hai vinto! Hai raggiunto ${score} punti`
+
+        alert(message);
+    }
+
     //! OPERAZIONI INIZIALI:
     //Cambio il testo in RICOMINCIA
     playButton.innerText = "Rigioca";
@@ -73,7 +82,7 @@ const startGame = () => {
     const totalBombs = 16;
 
     // Setto il punteggio massimo
-    const maxPoints = totalCells - totalBombs;
+    const maxScore = totalCells - totalBombs;
 
     // Preparo un contenitore per le bombe
     const bombs = generateBombs(totalBombs, totalCells);
@@ -104,11 +113,18 @@ const startGame = () => {
 
             if(hasHitBomb){
                 cell.classList.add('bomb');
+
                 //Segnalo che hai perso
-                console.log('HAI PERSO! Totale punti: ' + score);
+                endGame(score, hasHitBomb);
+
             } else {
                 //Incremento il punteggio
                 scorePlaceholder.innerText = ++score;
+
+                // SE HA VINTO
+                if(score === maxScore){
+                    endGame(score, hasHitBomb);
+                }
             }
 
         });
