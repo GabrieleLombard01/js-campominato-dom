@@ -95,12 +95,21 @@ const startGame = () => {
             //Controllo se era stata già cliccata
             if(cell.classList.contains('clicked')) return;
 
-            //Incremento il punteggio
-            scorePlaceholder.innerText = ++score;
-    
             //Aggiungo la classe clicked
             cell.classList.add('clicked');
             console.log(cell.innerText);
+
+            // Controllo se è una bomba
+            const hasHitBomb = bombs.includes(i);
+
+            if(hasHitBomb){
+                cell.classList.add('bomb');
+                //Segnalo che hai perso
+                console.log('HAI PERSO! Totale punti: ' + score);
+            } else {
+                //Incremento il punteggio
+                scorePlaceholder.innerText = ++score;
+            }
 
         });
 

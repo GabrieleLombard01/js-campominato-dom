@@ -105,6 +105,11 @@ section{
     color: black;
     cursor: not-allowed;
 }
+#grid .cell.clicked.bomb{
+    background-image: url(../img/bomb.jpg);
+    background-size: cover;
+    color: #ed202a;
+}
 
 
 
