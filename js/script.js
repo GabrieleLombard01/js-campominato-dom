@@ -9,8 +9,25 @@ const scorePlaceholder = document.getElementById('score');
 
 //Funzione start-game
 const startGame = () => {
+
+    let isGameOver = false;
     
     //! FUNZIONI:
+
+    //Funzione per rivelare le celle
+    const revealCells = () => {
+        //Recupero le celle
+        const cells = document.querySelectorAll('.cell')
+
+        for(let i = 0; i < cells.length; i++){
+            const cell = cells[i];
+            cell.classList.add('clicked');
+            const cellNumber = parseInt(cell.innerText);
+            if(bombs.includes(cellNumber)) cell.classList.add('bomb');
+        }
+    }
+
+
     //Funzione per generare le bombe
     const generateBombs = (numberOfBombs, maxNumber) => {
         let bombs = [];
@@ -41,9 +58,15 @@ const startGame = () => {
             : `Hai vinto! Hai raggiunto ${score} punti`
 
         alert(message);
+
+        isGameOver = true;
+
+        //Riveliamo tutte le celle
+        revealCells()
     }
 
     //! OPERAZIONI INIZIALI:
+
     //Cambio il testo in RICOMINCIA
     playButton.innerText = "Rigioca";
     
@@ -91,7 +114,6 @@ const startGame = () => {
     
     //! LOGICA DI GIOCO EFFETTIVA:
 
-
     //Generare la griglia
     for(let i = 1; i <= totalCells; i++) {
 
@@ -102,7 +124,7 @@ const startGame = () => {
         cell.addEventListener('click',() => {
 
             //Controllo se era stata già cliccata
-            if(cell.classList.contains('clicked')) return;
+            if(isGameOver === true || cell.classList.contains('clicked')) return;
 
             //Aggiungo la classe clicked
             cell.classList.add('clicked');
