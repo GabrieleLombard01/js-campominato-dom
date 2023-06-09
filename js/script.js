@@ -53,7 +53,32 @@ function startGame(){
     // Preparo il punteggio
     let score = 0;
     
+    // Setto il numero delle bombe
+    const totalBombs = 16;
+
+    // Setto il punteggio massimo
+    const maxPoints = totalCells - totalBombs;
+
+    // Preparo un contenitore per le bombe
+    const bombs = [];
+
+
+    
     //! LOGICA DI GIOCO EFFETTIVA:
+
+    //Funzione per generare le bombe
+    function generateBombs(numberOfBombs, maxNumber, blacklist) {
+        let bombs = [];
+
+        while(bombs.length < numberOfBombs){
+            let randomNumber;
+            do{
+                randomNumber = Math.floor(Math.random() * maxNumber) + 1;
+            }   while(bombs.includes(randomNumber));
+                bombs.push(randomNumber);
+        }
+        return bombs;
+    };
 
     //Generare la griglia
     for(let i = 1; i <= totalCells; i++) {
@@ -64,12 +89,16 @@ function startGame(){
         //IN ASCOLTO sulla cella
         cell.addEventListener('click',() => {
 
+            //Controllo se era stata già cliccata
+            if(cell.classList.contains('clicked')) return;
+
+            //Incremento il punteggio
+            scorePlaceholder.innerText = ++score;
+    
             //Aggiungo la classe clicked
             cell.classList.add('clicked');
             console.log(cell.innerText);
 
-            //Incremento il punteggio
-            scorePlaceholder.innerText = ++score;
         });
 
         //La inserisco in pagina

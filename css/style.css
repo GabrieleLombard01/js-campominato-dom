@@ -101,7 +101,9 @@ section{
 
 
 #grid .cell.clicked{
-    background-color: rgb(5, 65, 0);
+    background-color: rgb(21, 255, 0);
+    color: black;
+    cursor: not-allowed;
 }
 
 
@@ -109,5 +111,6 @@ section{
 
 /*RESPONSIVE LAYOUT*/
 @media screen and (max-width:553px) {
-    header{height: 160px};
+    header{height: 160px;
+           width: 100%};
 }
