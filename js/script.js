@@ -8,8 +8,32 @@ const levelSelect = document.getElementById('difficulty');
 const scorePlaceholder = document.getElementById('score');
 
 //Funzione start-game
-function startGame(){
+const startGame = () => {
     
+    //! FUNZIONI:
+    //Funzione per generare le bombe
+    const generateBombs = (numberOfBombs, maxNumber) => {
+        let bombs = [];
+        
+        while(bombs.length < numberOfBombs){
+            let randomNumber;
+            do{
+                randomNumber = Math.floor(Math.random() * maxNumber) + 1;
+            }   while(bombs.includes(randomNumber));
+            bombs.push(randomNumber);
+        }
+        return bombs;
+    };
+    
+    //Funzione per creare la cella
+    const createCell = (cellNumber, level) => {
+        const cell = document.createElement('div');
+        cell.classList.add('cell', level);
+    
+        cell.append(cellNumber);
+        return cell;
+    };
+
     //! OPERAZIONI INIZIALI:
     //Cambio il testo in RICOMINCIA
     playButton.innerText = "Rigioca";
@@ -39,14 +63,6 @@ function startGame(){
             break;
     };
     
-    //Funzione per creare la cella
-    const createCell = (cellNumber, level) => {
-        const cell = document.createElement('div');
-        cell.classList.add('cell', level);
-
-        cell.append(cellNumber);
-        return cell;
-    };
 
     const totalCells = rows * cols;
 
@@ -60,25 +76,12 @@ function startGame(){
     const maxPoints = totalCells - totalBombs;
 
     // Preparo un contenitore per le bombe
-    const bombs = [];
+    const bombs = generateBombs(totalBombs, totalCells);
 
-
+    console.log(bombs);
     
     //! LOGICA DI GIOCO EFFETTIVA:
 
-    //Funzione per generare le bombe
-    function generateBombs(numberOfBombs, maxNumber, blacklist) {
-        let bombs = [];
-
-        while(bombs.length < numberOfBombs){
-            let randomNumber;
-            do{
-                randomNumber = Math.floor(Math.random() * maxNumber) + 1;
-            }   while(bombs.includes(randomNumber));
-                bombs.push(randomNumber);
-        }
-        return bombs;
-    };
 
     //Generare la griglia
     for(let i = 1; i <= totalCells; i++) {
