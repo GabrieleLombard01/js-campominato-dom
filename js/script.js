@@ -1,12 +1,11 @@
 //JS RESET
 console.log('JS OK')
 
-
 // RECUPERO gli elementi dal DOM
 const grid = document.getElementById('grid');
 const playButton = document.getElementById('play-button');
 const levelSelect = document.getElementById('difficulty');
-
+const scorePlaceholder = document.getElementById('score');
 
 //Funzione start-game
 function startGame(){
@@ -24,7 +23,6 @@ function startGame(){
     //Calcolo le celle totali
     let rows;
     let cols;
-
     switch(level) {
         case 'hard':
             rows = 7;
@@ -43,18 +41,17 @@ function startGame(){
     
     //Funzione per creare la cella
     const createCell = (cellNumber, level) => {
-
         const cell = document.createElement('div');
         cell.classList.add('cell', level);
 
-        
-
         cell.append(cellNumber);
-
         return cell;
     };
 
     const totalCells = rows * cols;
+
+    // Preparo il punteggio
+    let score = 0;
     
     //! LOGICA DI GIOCO EFFETTIVA:
 
@@ -66,8 +63,13 @@ function startGame(){
 
         //IN ASCOLTO sulla cella
         cell.addEventListener('click',() => {
+
+            //Aggiungo la classe clicked
             cell.classList.add('clicked');
-            console.log(i);
+            console.log(cell.innerText);
+
+            //Incremento il punteggio
+            scorePlaceholder.innerText = ++score;
         });
 
         //La inserisco in pagina
